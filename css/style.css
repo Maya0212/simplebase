@@ -2,14 +2,21 @@
 
 TALBE OF CONTENTS 
 
-#GLOBAL
+# GLOBALS
     # DEFINE GLOBAL VARIABLES (CUSTOM PROPERTIES)
     # GLOBAL COLORS
-    # GLOBAL TYPOGRAPHY
+    # GLOBAL TYPOGRAPHY 
+    # GLOBAL MEDIA (images, video, svg)
+    # GLOBAL HEALPER
+    # GLOBAL RESETS
 
-    ...
+    # LAYOUT
+        # CONTAINER
+        # GRID SYSTEM (12 column)
 
-    (WILL ADD MORE HERE)
+# UI COMPONENTS
+    # CARDS
+    # HR (HORIZONTAL RULE)
 
 -----------------*/
 
@@ -45,12 +52,10 @@ TALBE OF CONTENTS
     --color-primary-dark: var(--color-blue-900);
     --color-secondary: var(--color-green-400);
 
-}
-
-/* BORDERS */
+    /* BORDERS */
     --color-border: var(--color-grey-200);
     --border-radius: 5px;
-    --border-thickness: .5px;
+    --border-thickness: 0.5px;
 
     /* SIZING UNITS */
     --unit-2xs: 0.25em;
@@ -60,6 +65,7 @@ TALBE OF CONTENTS
     --unit-xl: 3em;
     --unit-2xl: 4em;
     --unit-3xl: 6em;
+    --container-width: 1100px;
 
     /* GLOBAL FONTS */
     --font-body: system-ui, Helvetica, arial, sans-serif;
@@ -80,6 +86,9 @@ h1, h2, h3 {
 /* LINKS */
 a {
     color: var(--color-primary);
+    text-decoration-color: var(--color-primary-dark);
+    text-underline-offset: .135em;
+    text-decoration-thickness: .05em;
 }
 
 a:hover {
@@ -97,6 +106,69 @@ h1, h2, h3, h4 {
     font-family: var(--font-headings);
 }
 
+/* GLOBAL MEDIA */
+
+/* IMAGES 
+    Responsive on small screens 
+    Do not stretch too large (beyond it orignal)
+    on large screen */
+img {
+    max-width: 100%;
+    height: auto;
+}
+
+/* GLOBAL HELPER */
+.text-centered {
+    text-align: center;
+}
+
+/* GLOBAL RECETS */
+
+/* Remove the default 8pm margin on body */
+body { margin: 0; }
+
+/* Set all elements to box sizing border box */
+* { box-sizing: border-box; }
+
+
+/* ------------------
+        LAYOUT
+--------------------- */
+
+/* CONTAINER */
+
+.container {
+    max-width: 1100px;
+    margin-inline: auto;
+}
+
+/* GRID SYSTEM (12 column) */
+
+.row {
+    --grid-gap: var(--unit-s);
+}
+
+.row > * {
+    margin-block: var(--unit-s)
+}
+
+@media (min-width: 768px) {
+    
+    .row {
+        display: grid;
+        grid-template-columns: repeat(12, 1fr);
+    }
+
+    .one-half { grid-column: auto / span 6;}
+    .one-third { grid-column: auto / span 6;}
+}
+
+/* FOR DEMO PURPOSES ONLY */
+.row.demo > * {
+    background-color: #eee;
+    text-align: center;
+    padding: var(--unit-s);
+}
 
 /* ------------------
     UI COMPONENTS 
@@ -116,4 +188,11 @@ h1, h2, h3, h4 {
     background-color: var(--_swatch-color);
     width: 150px;
     height: 150px;
+}
+
+/* HR */
+hr {
+    border: none;
+    border-bottom: var(--border-thickness) solid var(--color-border);
+    margin: var(--unit-xl) 0;
 }

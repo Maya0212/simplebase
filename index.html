@@ -1,52 +1,120 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Simplebase</title>
-    <meta name="description" content="This is a simplebase">
+
+    <title>Simple Base</title>
+    <meta name="description" content="A simple HTML CSS and JS starter base">
+
     <!-- MAIN CSS -->
-     <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/style.css">
+
+
 </head>
+
 <body>
 
     <h1>Simple Base Docs</h1>
 
     <h2>Boilerplate</h2>
-    <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ut totam voluptatum blanditiis odit nostrum, fugit deleniti nemo labore qui saepe quia maxime laborum? Consequuntur dicta, aperiam qui totam aspernatur itaque porro consectetur. Similique totam delectus quo nesciunt, beatae voluptates ducimus et natus dignissimos reprehenderit a cum deleniti sed esse vitae?</p>
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dignissimos error nobis molestias est impedit, eaque provident ex quas cum blanditiis ea ad sunt natus tempore esse nihil deleniti adipisci facere recusandae ut! Deserunt nostrum similique enim veritatis, possimus soluta odit doloremque facere esse eum, rem nisi natus iste earum cupiditate!</p>
 
     <h2>CSS Variables</h2>
 
     <h3>Colors</h3>
 
-    <h4>Blues</h4>
+    <h4>Primary Blues (eg Brand color)</h4>
 
     <div class="card">
-        <div class="color-swatch" style="--_swatch-color: #3b82f6;">
+        <div class="color-swatch" style="--_swatch-color: #dbeafe;"></div>
         <div class="color-info">
             <p>Light Blue<br>
             --color-blue-100<br>
-            #dbeafe</p>
+            #dbeafe
+            </p>
         </div>
-        </div>
+    </div>
+
     <div class="card">
-        <div class="color-swatch" style="--_swatch-color: #3b82f6;">
+        <div class="color-swatch" style="--_swatch-color: #3b82f6;"></div>
         <div class="color-info">
             <p>Blue<br>
             --color-blue-400<br>
-            #3b82f6</p>
+            #3b82f6
+            </p>
         </div>
-        </div>
-     <div class="card">
-        <div class="color-swatch" style="--_swatch-color: #1e40af;">
+    </div>
+
+    <div class="card">
+        <div class="color-swatch" style="--_swatch-color: #1e40af;"></div>
         <div class="color-info">
             <p>Dark Blue<br>
-            --color-blue-100<br>
-            #1e40af</p>
+            --color-blue-900<br>
+            #1e40af
+            </p>
         </div>
+    </div>
+
+    <h4>Secondary (aka "Accent") color</h4>
+
+    <div class="card">
+        <div class="color-swatch" style="--_swatch-color: #22c55e;"></div>
+        <div class="color-info">
+            <p>Green<br>
+            --color-green-400<br>
+            #22c55e
+            </p>
         </div>
-    
+    </div>
+
+    <h2>Typography</h2>
+
+    <h1>This is a Heading 1</h1>
+    <h2>This is a Heading 2</h2>
+    <h3>This is a Heading 3</h3>
+    <h4>This is a Heading 4</h4>
+
+    <p>This is a paragraph. This is <em>italic text</em>, this is <strong>bold text</strong>, and this is an <a href="#">inline link</a>. Lorem ipsum dolor sit amet consectetur adipisicing elit. Quidem deleniti ducimus eligendi corporis dolorem corrupti reiciendis quibusdam ipsam neque optio!</p>
+
+    <h2>Media</h2>
+    <h3>Images</h3>
+
+    <img src="img/placeholder.gif" width="2000" height="1000" alt="placeholder">
+
+    <h2>Helper Classes</h2>
+
+    <h3>Easy Way to Center Text</h3>
+
+    <p class="text-centered">I want this to be centered.</p>
+
+    <hr>
+
+    <h2>Grid System (12 colum)</h2>
+
+    <div class="row demo">
+        <div class="one-half">&frac12;</div>
+        <div class="one-half">&frac12;</div>
+    </div>
+
+    <div class="row demo">
+        <div class="one-third">&frac13;</div>
+        <div class="one-third">&frac13;</div>
+        <div class="one-third">&frac13;</div>
+    </div>
+
+    <div class="row">
+        <div class="one-fourth">&frac14;</div>
+        <div class="one-fourth">&frac14;</div>
+        <div class="one-fourth">&frac14;</div>
+        <div class="one-fourth">&frac14;</div>
+    </div>
+
+
     <!-- MAIN JS -->
     <script src="js/script.js"></script>
+
 </body>
+
 </html>
