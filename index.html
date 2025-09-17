@@ -15,17 +15,65 @@
 </head>
 
 <body>
-    <div class="container">
-        <h1>Simple Base Docs</h1>
 
-        <h2>Boilerplate</h2>
-        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dignissimos error nobis molestias est impedit, eaque provident ex quas cum blanditiis ea ad sunt natus tempore esse nihil deleniti adipisci facere recusandae ut! Deserunt nostrum similique enim veritatis, possimus soluta odit doloremque facere esse eum, rem nisi natus iste earum cupiditate!</p>
+    <header class="site-header">
+        <div class="logo">
+            <li><a href="index.html">Simple Base</a></li>
+        </div>
+    </header>
 
-        <h2>CSS Variables</h2>
+    <main class="site-main">
 
-        <h3>Colors</h3>
+        <section class="hero">
+            <div class="container">
 
-        <h4>Primary Blues (eg Brand color)</h4>
+               <h1>Documentation</h1>
+
+            </div>
+        </section>
+
+        <section>
+            <div class="container">
+                <h2>Table of Contents</h2>
+                <nav>
+                    <ul>
+                        <li><a href="#boilerplate">Boilerplate</a></li>
+                        <li><a href="#css-variables">CSS Variables</a></li>
+                        <li><a href="#typography">Typography</a></li>
+                        <li><a href="#media">Media</a></li>
+                        <li><a href="#helper-classes">Helper Classes</a></li>
+                        <li><a href="#grid-system">Grid System</a></li>
+                    </ul>
+                </nav>
+
+            </div>
+        </section>
+
+        <section>
+            <div class="container">
+                <h2 id="boilerplate">Boilerplate</h2>
+                <p>This is a paragraph width default body type. I usually place a paragraph of text in my boilerplates (both in code and in Figma) in order to make sure that the default text size is correct (16px = 1em). Lorem ipsum dolor sit amet consectetur adipisicing elit. Dignissimos error nobis molestias est impedit, eaque provident ex quas cum blanditiis ea ad sunt natus tempore esse nihil deleniti adipisci facere recusandae ut! Deserunt nostrum similique enim veritatis, possimus soluta odit doloremque facere esse eum, rem nisi natus iste earum cupiditate!</p>
+
+                <h3>Simple Base Site Folder Structure</h3>
+
+                <pre><code>
+            sitename/
+├── index.html
+├── css/
+│   ├── style.css
+├── js/
+│   ├── script.js
+├── img/
+│   ├── (images go here)
+                </code></pre>
+
+                <hr>
+
+                <h2 id="css-variables">CSS Variables</h2>
+
+                <h3>Colors</h3>
+
+                <h4>Primary Blues (eg Brand color)</h4>
 
         <div class="card">
             <div class="color-swatch" style="--_swatch-color: #dbeafe;"></div>
@@ -106,14 +154,14 @@
             <hr>
 
 
-        <h2>Media</h2>
+        <h2 id="media">Media</h2>
         <h3>Responsive Images</h3>
 
         <img src="img/placeholder-2000x1000.gif" width="2000" height="1000" alt="Placeholder image">
 
         <hr>
 
-        <h2>Helper Classes</h2>
+        <h2 id="helper-classes">Helper Classes</h2>
 
         <h3><code>class="text-centered"</code></h3>
 
@@ -125,7 +173,14 @@
 
         <hr>
 
-        <h2>Grid System (12 colum)</h2>
+        <h2 id="grid-system">Grid System (12 colum)</h2>
+
+        <pre><code>
+&lt;div class="row"&gt;
+    &lt;div class="one-half"&gt;&frac12;&lt;/div&gt;
+    &lt;div class="one-half"&gt;&frac12;&lt;/div&gt;
+&lt;/div&gt;
+        </code></pre>
 
         <div class="row demo">
                 <div class="one-whole">1</div>
@@ -239,11 +294,23 @@
         </div>
 
         <pre><code>
-        &lt;div class="row"&gt;
-            &lt;div class="one-half">&frac12;&lt;/div&gt;
-            &lt;div class="one-half">&frac12;&lt;/div&gt;
-        &lt;/div&lt;
+&lt;div class="row"&gt;
+    &lt;div class="one-half"&gt; ... &lt;/div&gt;
+    &lt;div class="one-half"&gt; ... &lt;/div&gt;
+&lt;/div&gt;
+                </code></pre>
 
+        <div class="row">
+            <div class="one-half">
+                <img src="img/placeholder-2000x1000.gif" alt="Placeholder image" width="2000" height="1000">
+            </div>
+            <div class="one-half">
+                <h2>Image on the Left, Text on the Right</h2>
+                <p>This column is rending via the default normal flow. Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorum, fugit reprehenderit nobis eum modi ex.</p>
+            </div>
+        </div>
+
+        <pre><code>
         &lt;div class="row"&gt;
             &lt;div class="one-third"&gt;&frac13;&lt;/div&gt;
             &lt;div class="one-third"&gt;&frac13;&lt;/div&gt;
@@ -251,68 +318,54 @@
         &lt;/div&gt;
         </code></pre>
 
-        <div class="row">
-            <div class="one-half">
-                <img src="img/placeholder.gif" alt="Placeholder Image" width="2000" height="1000">
-            </div>
-            <div class="one-half">
-                <h1>This is a Row with Text on the Left</h1>
-                <p>This column us rending via the default normal flow. Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
-            </div>
-        </div>
-
         <div class="row swapped">
             <div class="one-half">
-                    <img src="img/placeholder-2000x1000.gif" alt="Placeholder image" width="2000" height="1000">
+                <img src="img/placeholder-2000x1000.gif" alt="Placeholder image" width="2000" height="1000">
             </div>
             <div class="one-half">
-                    <h2>Image on the Right, Text on the Left</h2>
-                    <p>This column is rending via the default normal flow. Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorum, fugit reprehenderit nobis eum modi ex.</p>
+                <h2>Image on the Right, Text on the Left</h2>
+                <p>This column is rending via the default normal flow. Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorum, fugit reprehenderit nobis eum modi ex.</p>
             </div>
         </div>
-        
-        <div class="div">
-            <div class="one-half centered">
-                <img src="img/placeholder.gif" alt="Placeholder Image" width="2000" height="1000">
-                <h1>This is a Row with Text on the Left</h1>
-                <p>This column us rending via the default normal flow. Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
-            </div>
-        </div>
+
+        <pre><code>
+&lt;div class="row"&gt;
+    &lt;div class="one-half centered"&gt; ... &lt;/div&gt;
+&lt;/div&gt;
+        </code></pre>
 
         <div class="row">
-                <div class="col-5 push-1">
-                    <img src="img/placeholder-2000x1000.gif" alt="Placeholder image" width="2000" height="1000">
-                    <h2>Col-5 Column with a Push-1</h2>
-                    <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Provident necessitatibus quod quae quasi officiis assumenda natus quis error, iste quo?</p>
-                </div>
-                <div class="col-5">
-                    <img src="img/placeholder-2000x1000.gif" alt="Placeholder image" width="2000" height="1000">
-                    <h2>Col-5 Column</h2>
-                    <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Provident necessitatibus quod quae quasi officiis assumenda natus quis error, iste quo?</p>
-                </div>
+            <div class="one-half centered">
+                <img src="img/placeholder-2000x1000.gif" alt="Placeholder image" width="2000" height="1000">
+                <h2>A Centered Column</h2>
+                <p>This column is rending via the default normal flow. Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorum, fugit reprehenderit nobis eum modi ex.</p>
             </div>
+        </div>
 
-            <div class="row">
-                <div class="col-5 push-1">
-                    <img src="img/placeholder-2000x1000.gif" alt="Placeholder image" width="2000" height="1000">
-                    <h2>Col-5 Column with a Push-1</h2>
-                    <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Provident necessitatibus quod quae quasi officiis assumenda natus quis error, iste quo?</p>
-                </div>
-                <div class="col-5">
-                    <img src="img/placeholder-2000x1000.gif" alt="Placeholder image" width="2000" height="1000">
-                    <h2>Col-5 Column</h2>
-                    <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Provident necessitatibus quod quae quasi officiis assumenda natus quis error, iste quo?</p>
-                </div>
+        <pre><code>
+&lt;div class="row"&gt;
+    &lt;div class="one-half centered"&gt; ... &lt;/div&gt;
+&lt;/div&gt;
+        </code></pre>
+
+        <div class="row">
+            <div class="col-5 push-1">
+                <img src="img/placeholder-2000x1000.gif" alt="Placeholder image" width="2000" height="1000">
+                <h2>Col-5 Column with a Push-1</h2>
+                <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Provident necessitatibus quod quae quasi officiis assumenda natus quis error, iste quo?</p>
             </div>
+            <div class="col-5">
+                <img src="img/placeholder-2000x1000.gif" alt="Placeholder image" width="2000" height="1000">
+                <h2>Col-5 Column</h2>
+                <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Provident necessitatibus quod quae quasi officiis assumenda natus quis error, iste quo?</p>
+            </div>
+        </div>
+    
+    </main>
+        <footer class="site-footer">
+            FOOTER GOES HERE
+        </footer>
 
-            <pre><code>
-        &lt;div class="row swapped"&gt;
-            ...
-        &lt;/div&gt;
-                </code></pre>
-
-    </div>
-        
     <!-- MAIN JS -->
     <script src="js/script.js"></script>
 

@@ -9,15 +9,27 @@ TALBE OF CONTENTS
     # GLOBAL MEDIA (images, video, svg)
     # GLOBAL HEALPER
     # GLOBAL RESETS
+        #ENABLE SMOOTH SCROLLING
 
     # LAYOUT
         # CONTAINER
         # GRID SYSTEM (12 column)
 
+#SITE STRUCTURE
+    #HEADER
+    #MAIN
+        #SECTIONS
+    #FOOTER
+
 # UI COMPONENTS
     # CARDS
     # HR (HORIZONTAL RULE)
     # CODE BLOCKS
+
+    (WE WILL ADD MORE HERE)
+
+#CUSTOM SITE sTYLING (OPINIATED)
+
 
 -----------------*/
 
@@ -52,6 +64,10 @@ TALBE OF CONTENTS
     --color-primary: var(--color-blue-400);
     --color-primary-dark: var(--color-blue-900);
     --color-secondary: var(--color-green-400);
+
+    --color-siteheader-background: var(--color-green-100);
+    --color-sitefooter-background: var(var(--color-green-100));
+    --color-hero-background: var(--color-blue-100)
 
     /* BORDERS */
     --color-border: var(--color-grey-200);
@@ -131,6 +147,11 @@ body { margin: 0; }
 
 /* Set all elements to box sizing border box */
 * { box-sizing: border-box; }
+
+/* SMOOTH SCROLLING */
+html {
+    scroll-behavior: smooth;
+}
 
 
 /* ------------------
@@ -215,11 +236,40 @@ body { margin: 0; }
     padding: var(--unit-s);
 }
 
+/* ------------------
+    SITE STRUCTURE
+--------------------- */
 
+/* SITE HEADER */
+.site-header {
+    background-color: var(--color-siteheader-backgorund);
+    padding: var(--unit-s);
+}
+
+/* SITE MAIN */
+.site-main {
+    background-color: transparent;
+}
+
+/* STYLING FOR ALL SECTIONS */
+section {
+    padding-block: var(--unit-xl);
+}
+
+.hero {
+    background-color: var(--color-hero-background);
+}
+
+/* SITE FOOTER */
+.site-footer {
+    background-color: var(--color-sitefooter-background);
+padding: var(--unit-s);
+}
 
 /* ------------------
     UI COMPONENTS 
 --------------------- */
+
 
 /* CARDS */
 
@@ -251,4 +301,15 @@ pre:has(code) {
     padding-inline: var(--unit-m);
     border-radius: var(--border-radius);
     white-space: pre-wrap;
+}
+
+/* ------------------
+    CUSTOM SITE STYLING
+---------------------*/
+
+/* PUSH THE FOOTER TO THE BOTTOM BY DEFAULT */
+body {
+    display: grid;
+    grid-template-rows: auto 1fr auto;
+    min-height: 100svh;
 }
