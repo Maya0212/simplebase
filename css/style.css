@@ -1,25 +1,27 @@
-/* ------------
+/* --------------------
 
-TALBE OF CONTENTS 
+TABLE OF CONTENTS 
 
 # GLOBALS
     # DEFINE GLOBAL VARIABLES (CUSTOM PROPERTIES)
-    # GLOBAL COLORS
-    # GLOBAL TYPOGRAPHY 
+    # SET GLOBAL COLORS
+    # SET GLOBAL TYPOGRAPHY
     # GLOBAL MEDIA (images, video, svg)
-    # GLOBAL HEALPER
+    # GLOBAL HELPERS
     # GLOBAL RESETS
-        #ENABLE SMOOTH SCROLLING
+        # ENABLE SMOOTH SCROLLING
 
-    # LAYOUT
-        # CONTAINER
-        # GRID SYSTEM (12 column)
+# LAYOUT
+    # CONTAINER
+    # GRID SYSTEM (12 column)
 
-#SITE STRUCTURE
-    #HEADER
-    #MAIN
-        #SECTIONS
-    #FOOTER
+# SITE STRUCTURE
+    # HEADER
+        #LOGO
+        #SITE NAV
+    # MAIN
+        # SECTIONS
+    # FOOTER
 
 # UI COMPONENTS
     # CARDS
@@ -28,20 +30,19 @@ TALBE OF CONTENTS
 
     (WE WILL ADD MORE HERE)
 
-#CUSTOM SITE sTYLING (OPINIATED)
+# CUSTOM SITE STYLING (OPINIONATED)
+    # BODY GRID LAYOUT SYSTEM (header, main, and footer)
 
+----------------------- */
 
------------------*/
-
-/* --------------
-    GLOBALS     
----------------- */
+/* ------------------
+        GLOBALS 
+--------------------- */
 
 /* DEFINE GLOBAL VARIABLES */
-
 :root {
 
-  /* DEFINE BASE COLORS */
+    /* DEFINE BASE COLORS */
     --color-white: #fff;
     --color-black: #000;
     --color-black-80: rgb(0 0 0 / .8);
@@ -66,13 +67,13 @@ TALBE OF CONTENTS
     --color-secondary: var(--color-green-400);
 
     --color-siteheader-background: var(--color-green-100);
-    --color-sitefooter-background: var(var(--color-green-100));
-    --color-hero-background: var(--color-blue-100)
+    --color-sitefooter-background: var(--color-green-100);
+    --color-hero-background: var(--color-blue-100);
 
     /* BORDERS */
     --color-border: var(--color-grey-200);
     --border-radius: 5px;
-    --border-thickness: 0.5px;
+    --border-thickness: .5px;
 
     /* SIZING UNITS */
     --unit-2xs: 0.25em;
@@ -104,6 +105,8 @@ h1, h2, h3 {
 /* LINKS */
 a {
     color: var(--color-primary);
+
+    /* STYLE THE UNDERLINE */
     text-decoration-color: var(--color-primary-dark);
     text-underline-offset: .135em;
     text-decoration-thickness: .05em;
@@ -126,24 +129,34 @@ h1, h2, h3, h4 {
 
 /* GLOBAL MEDIA */
 
-/* IMAGES 
-    Responsive on small screens 
-    Do not stretch too large (beyond it orignal)
-    on large screen */
+/* IMAGES (Responsive)
+   Responsive on small screens
+   Do not stretch too large (beyond the orignal)
+   on large screens */
 img {
     max-width: 100%;
     height: auto;
 }
 
-/* GLOBAL HELPER */
+/* GLOBAL HELPERS */
+
 .text-centered {
     text-align: center;
 }
 
-/* GLOBAL RECETS */
+/* HIDE CINTENT VISUALLY (BUT KEEP  FOR SEO AND ACCECIBILITY) */
+.hide-visually,
+.visually-hidden,
+.screen-reader-only {
+    position: absolute;
+    top: -9999px;
+    left: -9999px;
+}
+
+/* GLOBAL RESETS */
 
 /* Remove the default 8pm margin on body */
-body { margin: 0; }
+body {  margin: 0; }
 
 /* Set all elements to box sizing border box */
 * { box-sizing: border-box; }
@@ -155,7 +168,7 @@ html {
 
 
 /* ------------------
-        LAYOUT
+        LAYOUT 
 --------------------- */
 
 /* CONTAINER */
@@ -163,8 +176,9 @@ html {
 .container {
     max-width: var(--container-width);
     margin-inline: auto;
-    padding-inline: var(--unit-s)
+    padding-inline: var(--unit-s);
 }
+
 
 /* GRID SYSTEM (12 column) */
 
@@ -176,7 +190,8 @@ html {
     margin-block-end: var(--grid-gap);
 }
 
-@media (min-width: 768px) {
+/* NEW width SYNTAX (updated from min-width: 768px)  */
+@media ( width >= 768px ) {
    
     .row {
         display: grid;
@@ -184,7 +199,7 @@ html {
         gap: var(--grid-gap);
     }
 
-       /* COMMONLY USED SEMANTIC COLUMNS */
+    /* COMMONLY USED SEMANTIC COLUMNS */
     .one-whole { grid-column: auto / span 12; }
     .one-half { grid-column: auto / span 6; }
     .one-third { grid-column: auto / span 4; }
@@ -237,13 +252,73 @@ html {
 }
 
 /* ------------------
-    SITE STRUCTURE
+    SITE STRUCTURE 
 --------------------- */
 
 /* SITE HEADER */
 .site-header {
-    background-color: var(--color-siteheader-backgorund);
-    padding: var(--unit-s);
+    background-color: var(--color-siteheader-background);
+    padding-block: var(--unit-s);
+    padding-inline: var(--unit-s);
+
+    /* DISPALY LOGO ON LEFT AND NAV ON RIGHT */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: var(--unit-s);
+    flex-wrap: wrap;
+}
+
+/* REMOVE HEADER PADDING IF IT HAS A CONTAINER */
+.site-header:has(.container) {
+    padding-inline: 0;
+}
+
+/* LOGO STYLING */
+.site-header .logo {
+    list-style: none;
+    display: flex;
+    gap: var(--unit-s);
+}
+
+.site-header .logo svg {
+    max-height: 50px;
+    min-width: 50px;
+}
+
+/* CHRS COYIER'S FIX FOR GAP UNDR INLINE IMAGES AND SVG*/
+.site-header .logo img,
+.site-header .logo svg {
+    vertical-align: middle;
+}
+
+.site-header .logo h1 {
+    font-size: 1.3125rem;
+    margin: 0;
+}
+
+.site-header .logo a {
+    text-decoration: none;
+}
+
+/* MAIN SITE NAV */
+
+.site-header .site-nav ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    display: flex;
+    gap: var(--unit-s);
+    flex-wrap: wrap;
+}
+
+.site-header .site-nav a {
+    text-decoration: none;
+    font-weight: bold;
+    display: block;
+    padding: var(--unit-xs);
+    padding-block-start: clac(var(--unit--xs) + .1em)
+
 }
 
 /* SITE MAIN */
@@ -258,18 +333,24 @@ section {
 
 .hero {
     background-color: var(--color-hero-background);
+      padding-block: var(--unit-3xl);
 }
 
 /* SITE FOOTER */
 .site-footer {
     background-color: var(--color-sitefooter-background);
-padding: var(--unit-s);
+    padding-block: var(--unit-2xl);
+    padding-inline: var(--unit-s);
+}
+
+/* REMOVE FOOTER PADDING IF IT HAS A CONTAINER */
+.site-footer:has(.container) {
+    padding-inline: 0;
 }
 
 /* ------------------
     UI COMPONENTS 
 --------------------- */
-
 
 /* CARDS */
 
@@ -303,13 +384,19 @@ pre:has(code) {
     white-space: pre-wrap;
 }
 
+
 /* ------------------
-    CUSTOM SITE STYLING
----------------------*/
+    CUSTOM SITE STYLING 
+--------------------- */
 
 /* PUSH THE FOOTER TO THE BOTTOM BY DEFAULT */
 body {
     display: grid;
     grid-template-rows: auto 1fr auto;
     min-height: 100svh;
+}
+
+/* PUSH THE NAV ITEMS DOWN TO ALIGN WITH IMAGE LOGO TEXT */
+.site-header .site-nav {
+    padding-block-start: calc(var(--unit-xs) + .35em);
 }
