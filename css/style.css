@@ -66,8 +66,8 @@ TABLE OF CONTENTS
     --color-primary-dark: var(--color-blue-900);
     --color-secondary: var(--color-green-400);
 
-    --color-siteheader-background: var(--color-green-100);
-    --color-sitefooter-background: var(--color-green-100);
+    --color-siteheader-background: transparent;
+    --color-sitefooter-background: transparent;
     --color-hero-background: var(--color-blue-100);
 
     /* BORDERS */
@@ -76,14 +76,14 @@ TABLE OF CONTENTS
     --border-thickness: .5px;
 
     /* SIZING UNITS */
-    --unit-2xs: 0.25em;
-    --unit-xs: 0.5em;
-    --unit-s: 1em;
-    --unit-m: 1.5em;
-    --unit-l: 2em;
-    --unit-xl: 3em;
-    --unit-2xl: 4em;
-    --unit-3xl: 6em;
+    --unit-2xs: 0.25rem;
+    --unit-xs: 0.5rem;
+    --unit-s: 1rem;
+    --unit-m: 1.5rem;
+    --unit-l: 2rem;
+    --unit-xl: 3rem;
+    --unit-2xl: 4rem;
+    --unit-3xl: 6rem;
     --container-width: 1100px;
 
     /* GLOBAL FONTS */
@@ -98,8 +98,22 @@ body {
     color: var(--color-body-text);
 }
 
+/* HEADINGS */
 h1, h2, h3 {
     color: var(--color-body-text-dark);
+
+    /* ADD SUPPORT FOR TEXTWRAP BALANCE */
+    text-wrap: balance;
+}
+
+/* LIMIT THE NUMBER OF CHARACTERS PER LINE FOR ALL PARAGRAPHS */
+p {
+    max-inline-size: 66ch;
+}
+
+/* REMOVE WIDOWS FOR ALL PARAGRAPHS AND LIST ITEMS*/
+p, li { 
+    text-wrap: pretty;
 }
 
 /* LINKS */
@@ -144,7 +158,12 @@ img {
     text-align: center;
 }
 
-/* HIDE CINTENT VISUALLY (BUT KEEP  FOR SEO AND ACCECIBILITY) */
+/* CENTER PARAGRAPHS INSIDE CENTERED PARENTS */
+.text-centered p {
+    margin-inline: auto;
+}
+
+/* HIDE CONTENT VISUALLY (BUT KEEP FOR SEO AND ACCESSIBILITY) */
 .hide-visually,
 .visually-hidden,
 .screen-reader-only {
@@ -164,6 +183,11 @@ body {  margin: 0; }
 /* SMOOTH SCROLLING */
 html {
     scroll-behavior: smooth;
+}
+
+/* ADD OFFSET TO ALL INLINE ANCHOR LINKS */
+:target {
+    scroll-margin-top: var(--unit-m);
 }
 
 
@@ -261,7 +285,7 @@ html {
     padding-block: var(--unit-s);
     padding-inline: var(--unit-s);
 
-    /* DISPALY LOGO ON LEFT AND NAV ON RIGHT */
+    /* DISPLAY LOGO ON LEFT AND NAV ON RIGHT */
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -276,8 +300,8 @@ html {
 
 /* LOGO STYLING */
 .site-header .logo {
-    list-style: none;
     display: flex;
+    align-items: center;
     gap: var(--unit-s);
 }
 
@@ -302,7 +326,6 @@ html {
 }
 
 /* MAIN SITE NAV */
-
 .site-header .site-nav ul {
     margin: 0;
     padding: 0;
@@ -317,8 +340,7 @@ html {
     font-weight: bold;
     display: block;
     padding: var(--unit-xs);
-    padding-block-start: clac(var(--unit--xs) + .1em)
-
+    padding-block-start: calc(var(--unit-xs) + .1em);
 }
 
 /* SITE MAIN */
@@ -328,13 +350,19 @@ html {
 
 /* STYLING FOR ALL SECTIONS */
 section {
-    padding-block: var(--unit-xl);
+    padding-block: var(--unit-2xl);
 }
 
 .hero {
     background-color: var(--color-hero-background);
-      padding-block: var(--unit-3xl);
+    padding-block: var(--unit-3xl);
+    padding-inline: var(--unit-s);
 }
+
+.hero:has(.container) {
+    padding-inline: 0;
+}
+
 
 /* SITE FOOTER */
 .site-footer {
@@ -396,7 +424,41 @@ body {
     min-height: 100svh;
 }
 
-/* PUSH THE NAV ITEMS DOWN TO ALIGN WITH IMAGE LOGO TEXT */
-.site-header .site-nav {
+/* NUDGE THE NAV ITEMS DOWN TO ALIGN WITH IMAGE LOGO TEXT */
+.site-header .site-nav a {
     padding-block-start: calc(var(--unit-xs) + .35em);
+}
+
+/* CUSTOM HERO STYLING */
+.hero h1 {
+    font-size: 4em;
+    margin-block: 0
+}
+.hero p {
+    text-wrap: balance;
+}
+
+/* CUSTOM PAGE LAYOUT - 2 COLUMNS: ASIDE + MAIN CONTENT */
+
+@media ( width >= 768px ) {
+
+    .pagelayout-wrapper-twocolumn {
+        display: flex;
+        gap: var(--unit-l);
+    }
+
+    .pagesection-aside {
+        width: 25%;
+    }
+
+    .pagesection-maincontent {
+        width: 75%;
+    }
+
+}
+
+/* STICKYBOX */
+.stickybox {
+    position: sticky;
+    top: var(--unit-m);
 }
