@@ -56,6 +56,7 @@ TABLE OF CONTENTS
 
     --color-blue-100: #dbeafe;
     --color-blue-400: #3b82f6;
+    --color-blue-800: #3644a8:
     --color-blue-900: #1e40af;
 
     --color-green-100: #d1fae5;
@@ -85,7 +86,7 @@ TABLE OF CONTENTS
 
      /* SECTION SPECIFIC */
     --color-siteheader-background: transparent;
-    --color-siteheader-links: var(--color-blue-400);
+    --color-siteheader-links: var(--color-blue-300);
     --color-siteheader-links-hover: var(--color-blue-900);
     --color-sitefooter-background: var(--color-grey-100);
     --color-hero-background: var(--color-blue-100);
@@ -365,7 +366,7 @@ html {
 }
 
 .site-nav a:hover {
-    color: var(---color-siteheader-links-hover)
+    color: var(---color-siteheader-links-hover);
 }
 
 /* SHOW MENU BUTTON ON HIGHER LAYER WHEN IS OPEN */
@@ -425,7 +426,7 @@ html {
     }
 
     /* CHANGE COLOR OF THE SVG NAVICON WHEN MENU IS OPEN */
-    .site-nav[data-menustate="open"] .simple-navicon rect {
+    .site-nav[data-menustate="open"] svg.simple-navicon rect {
         fill: var(--color-white);
     }
 
@@ -439,8 +440,8 @@ html {
     }
     .site-nav[data-menustate="open"] .simple-navicon-top {
         position: fixed;
-        top: calc(var(--unit-s)) + var(--unit-s);
-        right: calc(var(--unit-s)) + var(--unit-s);
+        top: calc(var(--unit-s) + var(--unit-s));
+        right: calc(var(--unit-s) + var(--unit-s));
     }
     .site-nav[data-menustate="open"] .simple-navicon-top {
         rotate: 45deg;
@@ -567,12 +568,12 @@ body > * {
 
 /* RENDER HEADER ON TOP OF HERO */
 .site-header.on-top-of-here {
-    position: abulosute;
+    position: absolute;
     width: 100%;
 }
 
 .site-header.on-top-of-here + .site-main .hero {
-    padding-block-start: calc()
+    padding-block-start: calc(var(--unit-3xl) + var(--unit-xl));
 }
 
 /* CUSTOM HERO STYLING */
