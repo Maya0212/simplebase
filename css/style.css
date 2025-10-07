@@ -33,6 +33,7 @@ TABLE OF CONTENTS
 
 # CUSTOM SITE STYLING (OPINIONATED)
     # BODY GRID LAYOUT SYSTEM (header, main, and footer)
+    # HEADER ON TOP OF HERO
     # CUSTOM HERO STYLING
     # CUSTOM PAGE LAYOUT - 2 COLUMNS: ASIDE + MAIN CONTENT
     # STICKYBOX
@@ -80,6 +81,13 @@ TABLE OF CONTENTS
 
     --color-siteheader-background: transparent;
     --color-sitefooter-background: transparent;
+    --color-hero-background: var(--color-blue-100);
+
+     /* SECTION SPECIFIC */
+    --color-siteheader-background: transparent;
+    --color-siteheader-links: var(--color-blue-400);
+    --color-siteheader-links-hover: var(--color-blue-900);
+    --color-sitefooter-background: var(--color-grey-100);
     --color-hero-background: var(--color-blue-100);
 
     /* BORDERS */
@@ -300,7 +308,7 @@ html {
     /* DISPLAY LOGO ON LEFT AND NAV ON RIGHT */
     display: flex;
     justify-content: space-between;
-    align-items: center;
+    /* align-items: center; */
     gap: var(--unit-s);
     flex-wrap: wrap;
 }
@@ -338,7 +346,7 @@ html {
 }
 
 /* MAIN SITE NAV */
-.site-header .site-nav ul {
+.site-nav ul {
     margin: 0;
     padding: 0;
     list-style: none;
@@ -347,13 +355,107 @@ html {
     flex-wrap: wrap;
 }
 
-.site-header .site-nav a {
+.site-nav a {
+    color: var(---color-siteheader-links);
     text-decoration: none;
     font-weight: bold;
     display: block;
     padding: var(--unit-xs);
     padding-block-start: calc(var(--unit-xs) + .1em);
 }
+
+.site-nav a:hover {
+    color: var(---color-siteheader-links-hover)
+}
+
+/* SHOW MENU BUTTON ON HIGHER LAYER WHEN IS OPEN */
+.site-nav .menubutton {
+    position: relative;
+    z-index: 100;
+    border: none;
+    font-size: inherit;
+    font-family: inherit;
+    padding: var(--unit-xs);
+    margin-block-start: var(--unit-xs);
+    background-color: transparent;
+}
+
+
+/* SMALL SCREEN: SHOW MENU BUTTON, HIDE NAV */
+.site-nav .menubutton { display: block; }
+.site-nav ul { display: none; }
+
+/* BIG SCREEN: SHOW MENU BUTTON< HIDE NAV */
+@media ( width >= 768px ) {
+    .site-nav .menubutton { display: none; }
+    .site-nav ul { display: flex; }
+}
+
+/* SMALL SCREEN ONLY: ENABLE OVERLAY NAV */
+@media ( width < 768px ) {
+
+    .site-nav[data-menustate] ul {
+        display: grid;
+        position: fixed;
+        justify-content: center;
+        align-content: center;
+        right: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        background: red;
+        transition: translate 0.3s ease-out;
+    }
+
+    .site-nav[data-menustate] a {
+        color: var(--color-white);
+    }
+
+    .site-nav[data-menustate="open"] ul {
+        translate: 0 0;
+    }
+
+    .site-nav[data-menustate="closed"] ul {
+        translate: 100% 0;
+    }
+
+    /* ENABLE SVG ANIMATION FOR THE NAVICON */
+    .site-nav[data-menustate] .simple-navicon rect {
+        transition: all .3s ease-out;
+    }
+
+    /* CHANGE COLOR OF THE SVG NAVICON WHEN MENU IS OPEN */
+    .site-nav[data-menustate="open"] .simple-navicon rect {
+        fill: var(--color-white);
+    }
+
+    /* ANIMATE NAVICON LINES TO AN X WHEN OPEN */
+    .site-nav .simple-navicon {
+        display: block;
+    }
+    .site-nav .simple-navicon rect {
+        transform-origin: center;
+        width: 100%;
+    }
+    .site-nav[data-menustate="open"] .simple-navicon-top {
+        position: fixed;
+        top: calc(var(--unit-s)) + var(--unit-s);
+        right: calc(var(--unit-s)) + var(--unit-s);
+    }
+    .site-nav[data-menustate="open"] .simple-navicon-top {
+        rotate: 45deg;
+        translate: -21% 24%;
+    }
+    .site-nav[data-menustate="open"] .simple-navicon-middle {
+        opacity: 0;
+    }
+    .site-nav[data-menustate="open"] .simple-navicon-bottom {
+        rotate: -45deg;
+        translate: -21% -24%;
+    }
+
+}
+
 
 /* SITE MAIN */
 .site-main {
@@ -463,11 +565,21 @@ body > * {
     padding-block-start: calc(var(--unit-xs) + .35em);
 }
 
+/* RENDER HEADER ON TOP OF HERO */
+.site-header.on-top-of-here {
+    position: abulosute;
+    width: 100%;
+}
+
+.site-header.on-top-of-here + .site-main .hero {
+    padding-block-start: calc()
+}
+
 /* CUSTOM HERO STYLING */
 .hero h1 {
     font-size: clamp(2.5em, 4vw, 4em);
     margin-block: 0;
-    margin-block: break-word;
+    margin-block: break-word-;
 }
 .hero p {
     text-wrap: balance;
@@ -493,6 +605,7 @@ body > * {
 }
 
 /* STICKYBOX */
+/* NOTE NEEDED ON SMALL SCREENS< SO IT IS INSIDE OF A MEDIA QUERY SO IT ALLLOWS THE OBERLAY MENU TO RENDER ON TOP SMALL SCREENS */
 .stickybox {
     position: sticky;
     top: var(--unit-m);
