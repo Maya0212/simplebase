@@ -354,7 +354,7 @@ html {
 }
 
 .site-nav a {
-    color: var(---color-siteheader-links);
+    color: var(--color-siteheader-links);
     text-decoration: none;
     font-weight: bold;
     display: block;
@@ -363,7 +363,7 @@ html {
 }
 
 .site-nav a:hover {
-    color: var(---color-siteheader-links-hover);
+    color: var(--color-siteheader-links-hover);
     text-decoration: underline;
     text-decoration-color: var(--color-links);
     text-underline-offset: .5em;
@@ -582,7 +582,7 @@ body > * {
 .hero h1 {
     font-size: clamp(2.5em, 4vw, 4em);
     margin-block: 0;
-    margin-block: break-word;
+    overflow-wrap: break-word;
 }
 .hero p {
     text-wrap: balance;
