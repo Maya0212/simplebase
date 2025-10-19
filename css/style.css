@@ -52,6 +52,7 @@ TABLE OF CONTENTS
     --color-black: #000;
     --color-black-80: rgb(0 0 0 / .8);
 
+    --color-grey-100: rgb(0 0 0 / .05)
     --color-grey-200: rgb(0 0 0 / .2);
 
     --color-blue-100: #dbeafe;
@@ -77,12 +78,8 @@ TABLE OF CONTENTS
 
     /* ACTION COLORS */
     --color-links: var(--color-green-600);
-    --color-links-hover: var(--color-green-800);
-    --color-links-light: var(--color-green-200);
-
-    --color-siteheader-background: transparent;
-    --color-sitefooter-background: transparent;
-    --color-hero-background: var(--color-blue-100);
+    --color-links-hover: var(--color-blue-900);
+    --color-links-light: var(--color-blue-100);
 
      /* SECTION SPECIFIC */
     --color-siteheader-background: transparent;
@@ -142,7 +139,7 @@ a {
     color: var(--color-links);
 
     /* STYLE THE UNDERLINE */
-    text-decoration-color: var(--color-primary-hover);
+    text-decoration-color: var(--color-links-light);
     text-underline-offset: .135em;
     text-decoration-thickness: .1em;
 }
@@ -367,6 +364,10 @@ html {
 
 .site-nav a:hover {
     color: var(---color-siteheader-links-hover);
+    text-decoration: underline;
+    text-decoration-color: var(--color-links);
+    text-underline-offset: .5em;
+    text-decoration-thickness: .1em;
 }
 
 /* SHOW MENU BUTTON ON HIGHER LAYER WHEN IS OPEN */
@@ -423,6 +424,7 @@ html {
     /* ENABLE SVG ANIMATION FOR THE NAVICON */
     .site-nav[data-menustate] .simple-navicon rect {
         transition: all .3s ease-out;
+        fill: var(--color-primary);
     }
 
     /* CHANGE COLOR OF THE SVG NAVICON WHEN MENU IS OPEN */
@@ -580,7 +582,7 @@ body > * {
 .hero h1 {
     font-size: clamp(2.5em, 4vw, 4em);
     margin-block: 0;
-    margin-block: break-word-;
+    margin-block: break-word;
 }
 .hero p {
     text-wrap: balance;
@@ -607,7 +609,9 @@ body > * {
 
 /* STICKYBOX */
 /* NOTE NEEDED ON SMALL SCREENS< SO IT IS INSIDE OF A MEDIA QUERY SO IT ALLLOWS THE OBERLAY MENU TO RENDER ON TOP SMALL SCREENS */
+@media ( width >= 768px ) {
 .stickybox {
     position: sticky;
     top: var(--unit-m);
+}
 }
